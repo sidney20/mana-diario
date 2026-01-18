@@ -29,9 +29,13 @@ try {
 
 // ✅ ROTA RAIZ - Mantida conforme requisito
 app.get("/", (req, res) => {
+  const versoes = [];
+  if (nviData) versoes.push("nvi");
+  if (acfData) versoes.push("acf");
+  
   res.json({ 
     status: "API da Bíblia Online 🙏",
-    versoes: nviData ? ["nvi"] : [] + (acfData ? ["acf"] : [])
+    versoes: versoes
   });
 });
 
